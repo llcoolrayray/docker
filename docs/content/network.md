@@ -2,7 +2,7 @@
 
 安装 docker 时，它会自动创建三个网络：bridge（创建容器默认连接到此网络）、 none 、host。  
 使用`docker network ls`可查看  
-![图片alt](../images/network.PNG)
+![图片alt](../resource/images/network.PNG)
 
 网络模式|描述
 --|:--:
@@ -14,7 +14,7 @@ Container|多个容器共享同一套 Network NameSpace|
 
 ## Bridge
 Bridge 模式下容器没有公有 ip，只有宿主机可以直接访问容器，容器无法访问直接外部主机，需要通过宿主机的 NAT 规则后可以直接访问外网。  
-![图片alt](../images/brage.png)  
+![图片alt](../resource/images/brage.png)  
 Bridge 桥接模式的实现步骤主要如下：  
 * Docker Daemon 利用 veth pair 技术，在宿主机上创建两个虚拟网络接口设备，假设为 veth0 和 veth1。而
 veth pair 技术的特性可以保证无论哪一个 veth 接收到网络报文，都会将报文传输给另一方。

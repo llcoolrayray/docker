@@ -1,6 +1,4 @@
-# Docker 容器基本操作
-
-## 下载镜像并运行容器
+### 下载镜像并运行容器
 `docker run --rm -d --name web -p 5001:5000 nginx:latest --restart `  
 `01d272e5d1f4ea00427e4cdbc89d5f3d7b75a87cec414564a89492fbb6386b95`
 
@@ -12,7 +10,7 @@
 * -p：将本地的 5001 端口映射到容器的 5000 端口
 * --rm：容器停止时删除容器内数据
 
-## 交互式运行容器
+### 交互式运行容器
 `docker run -it --name web_test busybox:1.29 /bin/sh`  
 * -it：交互式运行容器  
 * busybox:1.29：表示下载的镜像为 1.29 版本的 busybox  
@@ -20,12 +18,12 @@
 
 退出容器：exit
 
-## 运行容器时指定容器内环境变量
+### 运行容器时指定容器内环境变量
 `docker run -d --name wp-db -e MYSQL_DB_USER=root -e MYSQL_ROOT_PASSWORD=ch2demo mysql:5`
 
 * -e：设置容器的环境变量（镜像中包含初始化脚本会读取命令中的变量）
 
-## Docker 容器重启策略
+### Docker 容器重启策略
 
 ##### 启动重启并设置重启策略
 `docker run -d --name web -p 5001:5000 nginx:latest --restart=always `
@@ -41,7 +39,7 @@
 在容器退出时总是重启容器|`always`|
 在容器退出时总是重启容器，但是不考虑在Docker守护进程启动时就已经停止了的容器|`unless-stopped`|
 
-## 常见命令
+### 常见命令
 
 ##### 启动/停止/删除容器
 功能|命令
@@ -84,7 +82,7 @@
 进入到容器中（推荐使用，退出容器终端不会导致容器的停止）|`$ docker exec -it 243c32535da7 /bin/bash`|
 进入到容器中（推荐使用，退出容器终端不会导致容器的停止）|`$ docker exec -it 243c32535da7 /bin/bash`|
 
-## 常见重启操作
+### 常见重启操作
 ##### 获取容器 ID  
 1. 使用 shell 脚本创建容器
 ```shell script
@@ -128,6 +126,6 @@ docker start $AGENT_CID
 
  
 
-## 其它
+### 其它
 ##### Docker 若有自动化的需求，可以将 containerID 输出到指定的文件中
 `docker create --cidfile ./web.cid nginx`
